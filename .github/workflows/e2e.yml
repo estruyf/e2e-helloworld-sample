@@ -1,0 +1,25 @@
+name: E2E Testing
+on:
+  push:
+    branches:
+      - main
+      - dev
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: E2E Build
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          registry-url: https://registry.npmjs.org/
+
+      - name: Install the dependencies
+        run: npm i
+      
+      - name: Run the tests
+        run: npm run ui-test
