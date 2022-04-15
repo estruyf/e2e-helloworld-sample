@@ -28,7 +28,7 @@
 		"compile": "rimraf out && tsc -p ./",
 		"lint": "eslint . --ext .ts,.tsx",
 		"watch": "tsc -watch -p ./",
-		"ui-test": "npm run compile && extest install-from-marketplace eliostruyf.vscode-unnamed-theme && extest setup-and-run out/test/**/*.test.js -u -e ./extensions"
+		"ui-test": "npm run compile && extest setup-tests && extest install-from-marketplace eliostruyf.vscode-unnamed-theme && extest run-tests out/test/**/*.test.js -u -e ./extensions"
 	},
 	"devDependencies": {
 		"@types/chai": "^4.3.1",
